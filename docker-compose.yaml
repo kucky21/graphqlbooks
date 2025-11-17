@@ -1,0 +1,40 @@
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: docker/php/Dockerfile
+    container_name: symfony-graphql-app
+    working_dir: /var/www/html
+    volumes:
+      - .:/var/www/html:delegated
+    environment:
+      APP_ENV: dev
+      DATABASE_URL: "postgresql://symfony:symfony@db:5432/symfony?serverVersion=16&charset=utf8"
+    depends_on:
+      - db
+
+  nginx:
+    build:
+      context: .
+      dockerfile: docker/nginx/Dockerfile
+    container_name: symfony-graphql-nginx
+    ports:
+      - "8080:80"
+    volumes:
+      - .:/var/www/html:ro
+    depends_on:
+      - app
+
+  db:
+    image: postgres:16-alpine
+    container_name: symfony-graphql-db
+    environment:
+      POSTGRES_USER: symfony
+      POSTGRES_PASSWORD: symfony
+      POSTGRES_DB: symfony
+    volumes:
+      - db_data:/var/lib/postgresql/data
+
+volumes:
+  db_data: {}

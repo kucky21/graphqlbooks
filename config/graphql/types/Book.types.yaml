@@ -1,0 +1,31 @@
+Book:
+  type: object
+  config:
+    fields:
+      id:
+        type: "ID!"
+      author:
+        type: "String!"
+      title:
+        type: "String!"
+      price:
+        type: "Float!"
+      excerpt:
+        type: "String!"
+      genre:
+        type: "BookGenre!"
+
+BookGenre:
+  type: enum
+  config:
+    values:
+      FANTASY:
+        value: "FANTASY"
+      SCIFI:
+        value: "SCIFI"
+      DRAMA:
+        value: "DRAMA"
+      NONFICTION:
+        value: "NONFICTION"
+      OTHER:
+        value: "OTHER"

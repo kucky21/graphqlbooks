@@ -1,0 +1,9 @@
+Mutation:
+  type: object
+  config:
+    fields:
+      createBook:
+        type: "Book!"
+        args:
+          input:
+            type: "CreateBookInput!"

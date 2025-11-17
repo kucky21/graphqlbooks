@@ -1,0 +1,14 @@
+CreateBookInput:
+  type: input-object
+  config:
+    fields:
+      author:
+        type: "String!"
+      title:
+        type: "String!"
+      price:
+        type: "Float!"
+      excerpt:
+        type: "String!"
+      genre:
+        type: "BookGenre!"

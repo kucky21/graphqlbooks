@@ -1,0 +1,16 @@
+Query:
+  type: object
+  config:
+    fields:
+      book:
+        type: "Book"
+        args:
+          id:
+            type: "ID!"
+      books:
+        type: "[Book!]!"
+        args:
+          author:
+            type: "String"
+          genre:
+            type: "BookGenre"
