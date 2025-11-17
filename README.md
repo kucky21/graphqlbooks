@@ -21,8 +21,7 @@ Spuštění aplikace
     docker compose up -d --build
 
 Query pro vytvoření knihy: 
-
-    mutation {
+mutation {
   createBook(input:{
     author: "John",
     title: "My First Book",
@@ -37,8 +36,7 @@ Query pro vytvoření knihy:
 
 
 Query 1: filtrování podle 2 parametrů (autor, žánr)
-
-    query {
+query {
   books(author: "John", genre: FANTASY) {
     id
     title
@@ -49,7 +47,6 @@ Query 1: filtrování podle 2 parametrů (autor, žánr)
 
 
 Query 2: detail knihy podle ID
-
 query {
   book(id: 1) {
     id
